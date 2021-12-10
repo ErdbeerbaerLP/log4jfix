@@ -10,7 +10,6 @@ buildscript {
 plugins{
 
     id "com.matthewprenger.cursegradle" version "1.4.0"
-    id "com.modrinth.minotaur" version "1.2.1"
 }
 apply plugin: 'net.minecraftforge.gradle'
 
@@ -19,11 +18,11 @@ version = '1.0.0'
 
 java {
     archivesBaseName = 'log4jfix'
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    toolchain.languageVersion = JavaLanguageVersion.of(16)
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.18'
+    mappings channel: 'official', version: '1.17.1'
 
     runs {
         client {
@@ -75,12 +74,12 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18-38.0.16'
+    minecraft 'net.minecraftforge:forge:1.17.1-37.1.0'
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
-    classifier = "1.18"
+    classifier = "1.17"
     manifest {
         attributes([
                 "Specification-Title"     : "log4jfix",
@@ -95,9 +94,6 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
-task release{
-
-}
 
 
 //Curseforge publishing
@@ -108,30 +104,13 @@ curseforge {
             id = '554869'
             changelog = project.changelog
             releaseType = "release"
-            addGameVersion '1.18'
+            addGameVersion '1.17.1'
+            addGameVersion '1.17'
             mainArtifact(jar) {
-                displayName = "Log4J RCE Fix $version (MC 1.18)"
+                displayName = "Log4J RCE Fix $version (MC 1.17)"
             }
             //relations {
             //}
         }
     }
 }
-import com.modrinth.minotaur.TaskModrinthUpload
-
-task publishModrinth (type: TaskModrinthUpload){
-
-    if (project.hasProperty('modrinth.apikey')) { // $GRADLE_USER_HOME/gradle.properties
-        token = getProperty("modrinth.apikey") // Use an environment property!
-        projectId = 'YCokWiGI'
-        versionNumber = version+"-1.18"
-        versionName = "Log4J RCE Fix $version (MC 1.18)"
-        uploadFile = jar
-        changelog = project.changelog
-        addGameVersion('1.18')
-        addLoader('forge')
-        versionType = "RELEASE"
-    }
-}
-
-tasks.release.dependsOn(tasks.build, tasks.curseforge,tasks.publishModrinth)
