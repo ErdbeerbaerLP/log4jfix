@@ -1,0 +1,16 @@
+[
+  {
+    "modid": "log4jfix",
+    "name": "Log4J RCE Fix",
+    "description": "",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
