@@ -21,7 +21,7 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 
 
 minecraft {
-    mappings channel: 'snapshot', version: '20190719-1.14.3'
+    mappings channel: 'snapshot', version: '20180921-1.13'
 
     runs {
         client {
@@ -68,17 +68,14 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
-repositories {
-
-}
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.14.4-28.2.23'
+    minecraft 'net.minecraftforge:forge:1.13.2-25.0.219'
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
-    classifier = "1.14"
+    classifier = "1.13"
     manifest {
         attributes([
                 "Specification-Title"     : "log4jfix",
@@ -103,13 +100,11 @@ curseforge {
             id = '554869'
             changelog = project.changelog
             releaseType = "release"
-            addGameVersion '1.14.4'
-            addGameVersion '1.14.3'
-            addGameVersion '1.14.2'
-            addGameVersion '1.14.1'
-            addGameVersion '1.14'
+            addGameVersion '1.13.2'
+            addGameVersion '1.13.1'
+            addGameVersion '1.13'
             mainArtifact(jar) {
-                displayName = "Log4J RCE Fix $version (MC 1.15)"
+                displayName = "Log4J RCE Fix $version (MC 1.13)"
             }
             //relations {
             //}
