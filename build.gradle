@@ -22,7 +22,7 @@ java {
 }
 
 minecraft {
-    mappings channel: 'official', version: '1.17.1'
+    mappings channel: 'official', version: '1.16.5'
 
     runs {
         client {
@@ -74,12 +74,12 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.17.1-37.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.19'
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
-    classifier = "1.17"
+    classifier = "1.16"
     manifest {
         attributes([
                 "Specification-Title"     : "log4jfix",
@@ -104,10 +104,14 @@ curseforge {
             id = '554869'
             changelog = project.changelog
             releaseType = "release"
-            addGameVersion '1.17.1'
-            addGameVersion '1.17'
+            addGameVersion '1.16.5'
+            addGameVersion '1.16.4'
+            addGameVersion '1.16.3'
+            addGameVersion '1.16.2'
+            addGameVersion '1.16.1'
+            addGameVersion '1.16'
             mainArtifact(jar) {
-                displayName = "Log4J RCE Fix $version (MC 1.17)"
+                displayName = "Log4J RCE Fix $version (MC 1.16)"
             }
             //relations {
             //}
