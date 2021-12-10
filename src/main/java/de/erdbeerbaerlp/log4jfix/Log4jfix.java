@@ -32,7 +32,7 @@ public class Log4jfix {
     public void chat(final ServerChatEvent event) {
         final Matcher m = this.p.matcher(event.getMessage());
         if (m.find()) {
-            LOGGER.warn(event.getPlayer().getName().getContents() + " just attempted to do something malicious!");
+            LOGGER.warn(event.getPlayer().getName().getFormattedText() + " just attempted to do something malicious!");
             event.setCanceled(true);
         }
     }

@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
 plugins{
@@ -15,14 +15,13 @@ apply plugin: 'net.minecraftforge.gradle'
 
 group = 'de.erdbeerbaerlp'
 version = '1.0.0'
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
-java {
     archivesBaseName = 'log4jfix'
-    toolchain.languageVersion = JavaLanguageVersion.of(8)
-}
+
 
 minecraft {
-    mappings channel: 'official', version: '1.16.5'
+    mappings channel: 'snapshot', version: '20200514-1.15.1'
 
     runs {
         client {
@@ -74,19 +73,19 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.2.19'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.55'
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
-    classifier = "1.16"
+    classifier = "1.15"
     manifest {
         attributes([
                 "Specification-Title"     : "log4jfix",
                 //"Specification-Vendor": "log4jfix authors",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Version"  : project.version,
                 //"Implementation-Vendor": "log4jfix authors",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
@@ -104,14 +103,11 @@ curseforge {
             id = '554869'
             changelog = project.changelog
             releaseType = "release"
-            addGameVersion '1.16.5'
-            addGameVersion '1.16.4'
-            addGameVersion '1.16.3'
-            addGameVersion '1.16.2'
-            addGameVersion '1.16.1'
-            addGameVersion '1.16'
+            addGameVersion '1.15.2'
+            addGameVersion '1.15.1'
+            addGameVersion '1.15'
             mainArtifact(jar) {
-                displayName = "Log4J RCE Fix $version (MC 1.16)"
+                displayName = "Log4J RCE Fix $version (MC 1.15)"
             }
             //relations {
             //}
