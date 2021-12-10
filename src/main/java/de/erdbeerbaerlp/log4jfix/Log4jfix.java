@@ -31,9 +31,9 @@ public class Log4jfix {
 
     @SubscribeEvent
     public void chat(ServerChatEvent event) {
-        final Matcher m = this.p.matcher(event.getMessage());
+        final Matcher m = this.p.matcher(event.message);
         if (m.find()) {
-            LOGGER.warn(event.getPlayer().getName() + " just attempted to do something malicious!");
+            LOGGER.warn(event.username + " just attempted to do something malicious!");
             event.setCanceled(true);
         }
     }

@@ -4,7 +4,7 @@ buildscript {
         maven { url = "http://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
     }
 }
 plugins{
@@ -22,7 +22,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.9.4-12.17.0.2317-1.9.4"
+    version = "1.8.9-11.15.1.2318-1.8.9"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -30,7 +30,7 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not allways work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20160518"
+    mappings = "stable_20"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -41,7 +41,7 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
-    classifier = "1.9"
+    classifier = "1.8"
     manifest {
         attributes([
                 "Specification-Title"     : "log4jfix",
@@ -83,13 +83,18 @@ curseforge {
             id = '554869'
             changelog = project.changelog
             releaseType = "release"
-            addGameVersion '1.9.4'
-            addGameVersion '1.9.3'
-            addGameVersion '1.9.2'
-            addGameVersion '1.9.1'
-            addGameVersion '1.9'
+            addGameVersion '1.8.9'
+            addGameVersion '1.8.8'
+            addGameVersion '1.8.7'
+            addGameVersion '1.8.6'
+            addGameVersion '1.8.5'
+            addGameVersion '1.8.4'
+            addGameVersion '1.8.3'
+            addGameVersion '1.8.2'
+            addGameVersion '1.8.1'
+            addGameVersion '1.8'
             mainArtifact(jar) {
-                displayName = "Log4J RCE Fix $version (MC 1.9)"
+                displayName = "Log4J RCE Fix $version (MC 1.8)"
             }
             //relations {
             //}
