@@ -22,7 +22,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.10.2-12.18.3.2511"
+    version = "1.9.4-12.17.0.2317-1.9.4"
     runDir = "run"
 
     // the mappings can be changed at any time, and must be in the following format.
@@ -30,7 +30,7 @@ minecraft {
     // stable_#            stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not allways work.
     // simply re-run your setup task after changing the mappings to update your workspace.
-    mappings = "snapshot_20161111"
+    mappings = "snapshot_20160518"
     makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 sourceSets.main.resources { srcDir 'src/generated/resources' }
@@ -41,7 +41,7 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
-    classifier = "1.10"
+    classifier = "1.9"
     manifest {
         attributes([
                 "Specification-Title"     : "log4jfix",
@@ -83,11 +83,13 @@ curseforge {
             id = '554869'
             changelog = project.changelog
             releaseType = "release"
-            addGameVersion '1.10.2'
-            addGameVersion '1.10.1'
-            addGameVersion '1.10'
+            addGameVersion '1.9.4'
+            addGameVersion '1.9.3'
+            addGameVersion '1.9.2'
+            addGameVersion '1.9.1'
+            addGameVersion '1.9'
             mainArtifact(jar) {
-                displayName = "Log4J RCE Fix $version (MC 1.11)"
+                displayName = "Log4J RCE Fix $version (MC 1.9)"
             }
             //relations {
             //}
