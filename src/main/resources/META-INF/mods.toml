@@ -27,7 +27,7 @@ modId = "forge" #mandatory
 mandatory = true #mandatory
 versionRange = "[38,)" #mandatory
 ordering = "NONE"
-side = "BOTH"
+side = "SERVER"
 [[dependencies.log4jfix]]
 modId = "minecraft"
 mandatory = true
